@@ -15,6 +15,24 @@ window.addEventListener('load', function() { //ko je celo okno nalozeno,  se izv
 	document.querySelector("#prijavniGumb") // z # po celi datoteki poicemo prijavniGumb (po id-ju)
 			.addEventListener('click', izvediPrijavo);//ko se zgodi "click", izvedemo funkcijo //vseeno kateri narekovaji v JavaScriptu
 			
+			
+   var dodajOpomnik = function() {
+   		var naziv_opomnika = document.querySelector("#naziv_opomnika").value;
+   		var cas_opomnika = document.querySelector("#cas_opomnika").value;
+   		document.querySelector("#naziv_opomnika").value = "";
+   		document.querySelector("#cas_opomnika").value = "";
+   		document.querySelector("#opomniki").innerHTML +=" \
+   		<div class='opomnik senca rob'> \
+   			<div class='naziv_opomnika'>" + naziv_opomnika + "</div> \
+   			<div class='cas_opomnika'>Opomnik čez <span>" +
+   				cas_opomnika + "</span> sekund. </div> \
+   		</div>"; 
+   		//innerHTML nastavi vsebino med začetno in končno značko
+   		//backslash je zato, da lahko v naslednji vrstici nadaljujes string in da ti ni treba spet delat dvojnih narekovajev
+   }
+   
+   document.querySelector("#dodajGumb")
+   		   .addEventListener('click', dodajOpomnik);
 		
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
